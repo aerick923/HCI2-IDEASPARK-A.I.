@@ -74,7 +74,8 @@ body {
   width: 100%;
   height: 60px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s, opacity 0.3s; /* smooth hover */
+  position: relative;
 }
 
 .sidebar-nav a,
@@ -88,16 +89,32 @@ body {
 }
 
 .sidebar img {
-  width: 22px;
-  height: 22px;
+  width: 30px;   /* bigger width */
+  height: 30px;  /* bigger height */
   object-fit: contain;
-  opacity: 0.6;
-  transition: opacity 0.2s;
+  opacity: 0.8;  /* slightly visible */
+  transition: opacity 0.3s;
 }
 
+/* === Hover & Active Effects === */
 .sidebar-nav li:hover,
 .sidebar-bottom a:hover {
-  background-color: #F0F0F0;
+  background-color: #d1e7dd; /* highlight color on hover */
+  border-radius: 8px;
+}
+
+.sidebar-nav li:hover img,
+.sidebar-bottom a:hover img {
+  opacity: 1;
+}
+
+.active-link {
+  background-color: #58b07c; /* active page highlight */
+  border-radius: 8px;
+}
+
+.active-link img {
+  opacity: 1;
 }
 
 .active-link::before {
@@ -109,6 +126,42 @@ body {
   height: 100%;
   background-color: #58b07c;
   border-radius: 0 5px 5px 0;
+}
+
+/* === Sidebar Bottom (Settings Icon) === */
+.sidebar-bottom {
+  position: absolute;
+  bottom: 20px;  /* distance from the bottom */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-bottom a {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+.sidebar-bottom a img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.sidebar-bottom a:hover {
+  background-color: #d1e7dd;
+}
+
+.sidebar-bottom a:hover img {
+  opacity: 1;
 }
 
 /* === Hero Section === */
@@ -293,6 +346,11 @@ body {
 
   .footer {
     display: none;
+  }
+
+  .sidebar img {
+    width: 28px;
+    height: 28px;
   }
 }
 
