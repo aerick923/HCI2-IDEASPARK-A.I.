@@ -296,11 +296,12 @@ body {
 
 /* === Footer === */
 .footer {
-  padding: 15px;
-  text-align: center;
-  font-size: 0.8rem;
-  color: #333;
-  background-color: #E2E7EC;
+    padding: 20px 50px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: auto;
+    border-top: 1px solid #ddd;
 }
 
 /* === Responsive === */
