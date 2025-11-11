@@ -25,7 +25,7 @@ body {
   transition: margin-left 0.3s ease;
 }
 
-/* === Hamburger Icon (always visible) === */
+/* === Hamburger Icon === */
 .hamburger-icon {
   font-size: 2rem;
   cursor: pointer;
@@ -40,7 +40,7 @@ body {
   width: 250px;
   position: fixed;
   top: 0;
-  left: -250px; /* hidden by default */
+  left: -250px;
   height: 100vh;
   background-color: #EAEAEA;
   box-shadow: 2px 0 10px rgba(0,0,0,0.08);
@@ -51,15 +51,14 @@ body {
 }
 
 .sidebar-active {
-  left: 0; /* slide in */
+  left: 0;
 }
 
-/* Sidebar nav */
 .sidebar-nav-wrapper {
   flex-direction: column;
   flex-grow: 1;
   width: 100%;
-  margin-top: 60px; /* leave space for hamburger icon */
+  margin-top: 60px;
 }
 
 .sidebar-nav ul {
@@ -74,7 +73,6 @@ body {
   width: 100%;
   height: 60px;
   cursor: pointer;
-  transition: background-color 0.3s, opacity 0.3s; /* smooth hover */
   position: relative;
 }
 
@@ -89,17 +87,16 @@ body {
 }
 
 .sidebar img {
-  width: 30px;   /* bigger width */
-  height: 30px;  /* bigger height */
+  width: 30px;
+  height: 30px;
   object-fit: contain;
-  opacity: 0.8;  /* slightly visible */
+  opacity: 0.8;
   transition: opacity 0.3s;
 }
 
-/* === Hover & Active Effects === */
 .sidebar-nav li:hover,
 .sidebar-bottom a:hover {
-  background-color: #d1e7dd; /* highlight color on hover */
+  background-color: #d1e7dd;
   border-radius: 8px;
 }
 
@@ -109,7 +106,7 @@ body {
 }
 
 .active-link {
-  background-color: #58b07c; /* active page highlight */
+  background-color: #58b07c;
   border-radius: 8px;
 }
 
@@ -128,24 +125,13 @@ body {
   border-radius: 0 5px 5px 0;
 }
 
-/* === Sidebar Bottom (Settings Icon) === */
 .sidebar-bottom {
   position: absolute;
-  bottom: 20px;  /* distance from the bottom */
+  bottom: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.sidebar-bottom a {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  transition: background-color 0.3s, opacity 0.3s;
 }
 
 .sidebar-bottom a img {
@@ -154,14 +140,6 @@ body {
   object-fit: contain;
   opacity: 0.8;
   transition: opacity 0.3s;
-}
-
-.sidebar-bottom a:hover {
-  background-color: #d1e7dd;
-}
-
-.sidebar-bottom a:hover img {
-  opacity: 1;
 }
 
 /* === Hero Section === */
@@ -218,7 +196,7 @@ body {
   text-shadow: 0 3px 5px rgba(0,0,0,0.5);
 }
 
-/* === Content Section === */
+/* === Idea Section === */
 .idea-section {
   flex-grow: 1;
   background-color: #E0EAE3;
@@ -227,47 +205,59 @@ body {
   gap: 50px;
 }
 
-.idea-input {
+/* Card for input */
+.idea-input-card {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-right: 20px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  gap: 15px;
 }
 
-.idea-input .subtitle {
+.idea-input-card .subtitle {
   font-size: 1.2rem;
   font-weight: 400;
   color: #777777;
-  margin-bottom: 10px;
 }
 
-.idea-input textarea {
+.idea-input-card textarea {
   width: 100%;
-  height: 200px;
-  padding: 20px;
-  border: none;
-  border-radius: 10px;
-  resize: none;
+  height: 180px;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
   font-size: 1rem;
-  margin-bottom: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.05), 0 0 10px rgba(0,0,0,0.03);
+  resize: none;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.idea-input-card select {
+  width: 60%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #f9f9f9;
 }
 
 .submit-button {
-  width: 100px;
-  padding: 10px;
+  width: 120px;
+  padding: 12px;
   background-color: #58b07c;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s;
-  align-self: flex-start;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .submit-button:hover {
   background-color: #4aa776;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
 }
 
 .idea-image {
@@ -275,14 +265,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  gap: 15px;
 }
 
 .idea-image h2 {
   font-size: 1.8rem;
   font-weight: 500;
-  color: #444444;
-  margin-bottom: 20px;
+  color: #444;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -296,66 +287,27 @@ body {
 
 /* === Footer === */
 .footer {
-    padding: 20px 50px;
-    text-align: center;
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: auto;
-    border-top: 1px solid #ddd;
+  padding: 20px 50px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: auto;
+  border-top: 1px solid #ddd;
 }
 
 /* === Responsive === */
 @media (max-width: 768px) {
-  .hamburger-icon {
-    left: 15px;
-    top: 15px;
-  }
-
-  .main-content {
-    margin-left: 0;
-  }
-
-  .hero-text {
-    left: 20px;
-    bottom: 15%;
-    font-size: 2.5rem;
-  }
-
-  .idea-section {
-    flex-direction: column;
-    padding: 30px 20px;
-  }
-
-  .idea-input {
-    padding-right: 0;
-  }
-
-  .idea-image {
-    width: 100%;
-    padding: 20px 0;
-  }
-
-  .idea-image h2 {
-    font-size: 1.4rem;
-  }
-
-  .idea-image img {
-    max-width: 80%;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .footer {
-    display: none;
-  }
-
-  .sidebar img {
-    width: 28px;
-    height: 28px;
-  }
+  .hamburger-icon { left: 15px; top: 15px; }
+  .main-content { margin-left: 0; }
+  .hero-text { left: 20px; bottom: 15%; font-size: 2.5rem; }
+  .idea-section { flex-direction: column; padding: 30px 20px; }
+  .idea-input-card { width: 100%; padding: 20px; }
+  .idea-input-card select { width: 100%; }
+  .idea-image { width: 100%; padding: 20px 0; }
+  .idea-image h2 { font-size: 1.4rem; }
+  .idea-image img { max-width: 80%; margin: 0 auto; display: block; }
+  .footer { display: none; }
+  .sidebar img { width: 28px; height: 28px; }
 }
 
-/* === Optional: shift main content when sidebar is open (desktop too) === */
-.shifted {
-  margin-left: 250px;
-}
+.shifted { margin-left: 250px; }
