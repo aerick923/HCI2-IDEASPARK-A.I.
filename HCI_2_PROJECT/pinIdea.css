@@ -7,8 +7,7 @@
 }
 
 body {
-    /* Set gradient background: white to light green */
-    background: linear-gradient(180deg, #FFFFFF 0%, #E2F5E6 40%, #D4EAD9 100%); 
+    background: linear-gradient(180deg, #FFFFFF 0%, #E2F5E6 40%, #D4EAD9 100%);
     min-height: 100vh;
 }
 
@@ -20,7 +19,6 @@ body {
 
 /* === Main Content Layout === */
 .main-content {
-    /* Initial margin and transition control is handled by sidebar.css */
     margin-left: 0; 
     flex-grow: 1;
     display: flex;
@@ -32,8 +30,7 @@ body {
 
 /* === Header (Mountain View) === */
 .header {
-    /* Use the mountain image and cover the area */
-    background: url('IMAGES/mountain.jpg') no-repeat center center/cover; /* Assume path */
+    background: url('IMAGES/mountain.jpg') no-repeat center center/cover;
     height: 200px; 
     display: flex;
     justify-content: space-between;
@@ -45,11 +42,9 @@ body {
 }
 
 .header-text {
-    /* Position text over the image, near the top left */
     position: absolute;
     top: 30px;
     left: 0;
-    padding-left: 0;
     max-width: 300px;
     z-index: 10;
 }
@@ -90,7 +85,6 @@ body {
     box-shadow: 0 0 0 1px #333; 
 }
 
-
 /* === Idea List Section === */
 .ideas {
     padding: 40px 0; 
@@ -119,7 +113,7 @@ body {
     color: white;
 }
 
-.idea-card > span:nth-child(2) { /* Targeting IDEA #X : text */
+.idea-card > span:nth-child(2) {
     flex-grow: 1;
 }
 
@@ -138,23 +132,20 @@ body {
 .idea6 { background-color: #0E5E0F; } 
 .idea7 { background-color: #004D40; } 
 
-
 /* === Footer === */
 .footer {
     padding: 15px;
     text-align: center;
     font-size: 0.8rem;
     color: #333;
-    background: none; 
     margin-top: auto; 
 }
 
-
-/* === Media Query for Mobile Header/Content (Layout adjustments) === */
+/* === Responsive === */
 @media (max-width: 768px) {
     .main-content {
-        margin-left: 0; /* Ensures content isn't offset when sidebar is closed */
-        padding: 0 15px; /* Adjust padding for smaller screens */
+        margin-left: 0;
+        padding: 0 15px;
     }
 
     .header {
@@ -170,8 +161,9 @@ body {
     .header-text {
         top: 60px;
         left: 0;
-        padding-left: 15px; /* Add padding here to align with content */
+        padding-left: 15px;
     }
+
     .page-title {
         font-size: 1.8rem;
     }
