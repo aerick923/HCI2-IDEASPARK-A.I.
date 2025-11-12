@@ -11,7 +11,7 @@
     <div class="auth-form">
       <h2>Create Account</h2>
       <p class="subtitle">Sign up to get started</p>
-      <form>
+      <form id="signup-form"> <!-- Added an ID to easily select the form -->
         <label for="name">Full Name</label>
         <input type="text" id="name" placeholder="Enter your name" required>
 
@@ -27,7 +27,7 @@
         <button type="submit">Sign Up</button>
 
         <p class="switch">Already have an account? 
-          <a href="login.html">Login</a>
+          <a href="indec.html">Login</a>
         </p>
       </form>
     </div>
@@ -36,5 +36,30 @@
       <img src="IMAGES/logo.png" alt="Sign up illustration">
     </div>
   </div>
+
+  <!-- Added JavaScript here -->
+  <script>
+    // 1. Select the form using its new ID
+    const signupForm = document.getElementById('signup-form');
+
+    // 2. Add an event listener for the 'submit' event
+    signupForm.addEventListener('submit', function (event) {
+      // In a real application, you would add logic here to:
+      // A. Validate passwords match
+      // B. Send data to a server (e.g., via fetch() API)
+
+      // Assuming signup is successful:
+      // Prevent the form from submitting in the traditional HTML way,
+      // which would normally refresh the page.
+      event.preventDefault(); 
+
+      // 3. Show the pop-up alert
+      alert('You have successfully created an account!');
+
+      // Optional: Redirect the user to the login page after they click 'OK' on the alert
+      // window.location.href = 'index.html';
+    });
+  </script>
+
 </body>
 </html>
