@@ -88,7 +88,7 @@ body { background: linear-gradient(180deg,#FFFFFF 0%,#E2F5E6 40%,#D4EAD9 100%); 
 .idea-card.music-bg  { background: url('IMAGES/music.png') center/cover no-repeat; }
 .idea-card.work-bg   { background: url('IMAGES/work.png') center/cover no-repeat; }
 .idea-card.personal-bg { background: url('IMAGES/personal.png') center/cover no-repeat; }
-.idea-card.hobby-bg  { background: url('IMAGES/Screenshot\ 2025-11-11\ 210527.png') center/cover no-repeat; }
+.idea-card.hobby-bg  { background: url('IMAGES/hobby.png') center/cover no-repeat; }
 
 /* overlay (same for all category backgrounds) */
 .idea-card.music-bg::before,
