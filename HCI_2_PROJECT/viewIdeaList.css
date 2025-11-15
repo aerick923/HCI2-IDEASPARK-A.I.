@@ -1,6 +1,6 @@
 /* ------------------------------
-   viewIdeaList.css — decluttered
-   Sections: Reset | Layout | Header | Filters | Cards | Buttons | Backgrounds | Responsive
+   viewIdeaList.css — finalized
+   Sections: Reset | Layout | Header | Filters | Cards | Buttons | Backgrounds | Responsive | Toasts
    ------------------------------ */
 
 /* === Reset & Base === */
@@ -18,8 +18,7 @@ body { background: linear-gradient(180deg,#FFFFFF 0%,#E2F5E6 40%,#D4EAD9 100%); 
   padding: 0 40px;
   transition: margin-left .3s ease;
 }
-/* helper used by mainpage.js behavior */
-.main-content.shifted { margin-left: 220px; } /* matches most collapsed-to-open sidebar widths */
+.main-content.shifted { margin-left: 220px; }
 
 /* === Header === */
 .header {
@@ -29,15 +28,16 @@ body { background: linear-gradient(180deg,#FFFFFF 0%,#E2F5E6 40%,#D4EAD9 100%); 
   display:flex; justify-content:space-between; align-items:flex-start;
   padding: 30px 0 0 0; color:#333; width:100%;
 }
-.page-title { font-size:3rem; font-weight:900; line-height:1.1; color:#333;
-  text-shadow:1px 1px 0 #fff,-1px -1px 0 #fff,0 0 5px rgba(0,0,0,0.15); }
+.page-title {
+  font-size:3rem; font-weight:900; line-height:1.1; color:#333;
+  text-shadow:1px 1px 0 #fff,-1px -1px 0 #fff,0 0 5px rgba(0,0,0,0.15);
+}
 .header-icons { display:flex; align-items:center; gap:15px; margin-top:-15px; }
 .user-avatar { width:50px; height:50px; border-radius:50%; object-fit:cover; border:3px solid #333; box-shadow:0 0 0 1px #FFF; }
 
 /* === Filters === */
 .filter-controls {
   display:flex; gap:20px; align-items:center; padding:20px 0; flex-wrap:wrap;
-  /* ensure filters are below header visually */
   position: relative; z-index: 5; margin-top: 10px;
 }
 .filter-group { display:flex; flex-direction:column; gap:6px; }
@@ -49,7 +49,7 @@ body { background: linear-gradient(180deg,#FFFFFF 0%,#E2F5E6 40%,#D4EAD9 100%); 
 /* === Idea list container === */
 .ideas-container { display:flex; flex-direction:column; gap:22px; width:100%; padding-bottom: 20px; }
 
-/* === Idea Card (unified) === */
+/* === Idea Card === */
 .idea-card {
   position: relative; overflow:hidden;
   display:flex; flex-direction:column; gap:10px;
@@ -60,14 +60,15 @@ body { background: linear-gradient(180deg,#FFFFFF 0%,#E2F5E6 40%,#D4EAD9 100%); 
 }
 .idea-card:hover { transform:scale(1.03); box-shadow:0 14px 30px rgba(0,0,0,0.25); }
 
-/* make inputs readable and visually consistent */
+/* Inputs and text */
 .idea-title, .idea-text {
-  width:100%; border-radius:8px; padding:8px; font-size:1rem; border:1px solid rgba(255,255,255,0.25);
+  width:100%; border-radius:8px; padding:8px; font-size:1rem;
+  border:1px solid rgba(255,255,255,0.25);
   background: rgba(255,255,255,0.08); color:inherit;
 }
 .idea-text { min-height:80px; resize:vertical; }
 
-/* pinned highlight */
+/* Pinned highlight */
 .idea-card.pinned { box-shadow: 0 10px 28px rgba(241,196,15,0.12); border: 2px solid rgba(241,196,15,0.9); }
 
 /* === Button group === */
@@ -81,16 +82,14 @@ body { background: linear-gradient(180deg,#FFFFFF 0%,#E2F5E6 40%,#D4EAD9 100%); 
 .delete-btn { background:#e74c3c; color:#fff; }
 .pin-btn { background:#f1c40f; color:#333; }
 
-/* ensure form text and buttons sit above overlays */
-.idea-card input, .idea-card textarea, .idea-card p, .idea-card .button-group { position:relative; z-index: 2; }
+/* Ensure elements sit above overlays */
+.idea-card input, .idea-card textarea, .idea-card p, .idea-card .button-group { position:relative; z-index:2; }
 
-/* === Category background classes + overlay === */
+/* === Category backgrounds + overlay === */
 .idea-card.music-bg  { background: url('IMAGES/music.png') center/cover no-repeat; }
 .idea-card.work-bg   { background: url('IMAGES/work.png') center/cover no-repeat; }
 .idea-card.personal-bg { background: url('IMAGES/personal.png') center/cover no-repeat; }
 .idea-card.hobby-bg  { background: url('IMAGES/hobby.png') center/cover no-repeat; }
-
-/* overlay (same for all category backgrounds) */
 .idea-card.music-bg::before,
 .idea-card.work-bg::before,
 .idea-card.personal-bg::before,
@@ -101,7 +100,7 @@ body { background: linear-gradient(180deg,#FFFFFF 0%,#E2F5E6 40%,#D4EAD9 100%); 
 }
 .idea-card:hover::before { background: linear-gradient(180deg, rgba(0,0,0,0.20), rgba(0,0,0,0.28)); }
 
-/* small date text style */
+/* Paragraph styling */
 .idea-card p { margin:0; font-weight:600; opacity:.95; }
 
 /* === Footer === */
@@ -117,5 +116,44 @@ body { background: linear-gradient(180deg,#FFFFFF 0%,#E2F5E6 40%,#D4EAD9 100%); 
   .filter-controls { margin-top:6px; gap:12px; }
 }
 
-/* small helper if sidebar.css doesn't define sidebar-active/shifted on other pages */
-/*.sidebar.sidebar-active { /* visual handled primarily by sidebar.css — keep as safe fallback */ 
+/* === Toast Notifications === */
+#toast-container {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.toast {
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 8px;
+  min-width: 220px;
+  font-weight: 700;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideIn 0.3s forwards, fadeOut 0.5s forwards 2.5s;
+}
+@keyframes slideIn { to { opacity:1; transform: translateY(0); } }
+@keyframes fadeOut { to { opacity:0; transform: translateY(-20px); } }
+
+/* === Modal for custom confirm / alert === */
+#modal-overlay { position: fixed; inset:0; background: rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:99999; }
+#modal-overlay.hidden { display:none; }
+.modal-box {
+  background:#fff; padding:24px 32px; border-radius:12px;
+  max-width:400px; width:90%; text-align:center; box-shadow:0 8px 28px rgba(0,0,0,0.25);
+}
+.modal-box p { font-size:1.1rem; margin-bottom:20px; }
+.modal-buttons { display:flex; justify-content:center; gap:16px; }
+.modal-buttons button {
+  padding:8px 20px; border-radius:8px; font-weight:700; border:none; cursor:pointer; transition: transform .12s ease;
+}
+.modal-buttons button:hover { transform:translateY(-2px); }
+#modal-confirm { background:#4aa776; color:#fff; }
+#modal-cancel { background:#e74c3c; color:#fff; }
