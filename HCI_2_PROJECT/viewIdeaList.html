@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IdeaSpark View List</title>
+  <link rel="stylesheet" href="viewIdeaList.css" />
+  <link rel="stylesheet" href="sidebar.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <!-- hamburger (same id used by mainpage.js logic) -->
+    <span class="hamburger-icon" id="hamburger-icon">&#9776;</span>
+
+    <!-- Sidebar (structure matches mainpage) -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-nav-wrapper">
+        <nav class="sidebar-nav">
+          <ul>
+            <li><a href="editProfile.html" title="Profile"><img src="IMAGES/Navbar/profile.png" alt="Profile"></a></li>
+            <li><a href="mainpage.html" title="Add Idea"><img src="IMAGES/Navbar/addidea.png" alt="Add Idea"></a></li>
+            <li><a href="viewIdeaList.html" title="View Idea List"><img src="IMAGES/Navbar/list.png" alt="View Idea List"></a></li>
+            <li><a href="editDeleteIdea.html" title="Edit Idea"><img src="IMAGES/Navbar/edit.png" alt="Edit Idea"></a></li>
+            <li><a href="searchIdeas.html" title="Search Idea"><img src="IMAGES/Navbar/search.png" alt="Search Idea"></a></li>
+            <li><a href="pinIdea.html" title="Pin Idea"><img src="IMAGES/Navbar/pin.png" alt="Pin Idea"></a></li>
+            <li><a href="ideaCategories.html" title="Categories"><img src="IMAGES/Navbar/categories.png" alt="Categories"></a></li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="settings.html" title="Settings">
+            <img src="IMAGES/Navbar/settings.png" alt="Settings">
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <header class="header">
+        <div class="header-text">
+          <h1 class="page-title">VIEW YOUR IDEAS HERE</h1>
+        </div>
+
+        <!-- avatar: give it id="mainAvatar" so JS can load user's saved avatar -->
+        <div class="header-icons">
+          <img src="IMAGES/user-avatar.jpg" id="mainAvatar" alt="User Avatar" class="user-avatar">
+        </div>
+      </header>
+
+      <!-- Filters (category + sort side-by-side) -->
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label for="categorySelect">Select Category:</label>
+          <select id="categorySelect" aria-label="Select Category">
+            <option value="all" data-color="#777">All</option>
+            <option value="music" data-color="#55a86a">Music</option>
+            <option value="work" data-color="#4CAF50">Work</option>
+            <option value="personal" data-color="#388E3C">Personal</option>
+            <option value="hobby" data-color="#2E7D32">Hobby</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="sortSelect">Sort by:</label>
+          <select id="sortSelect" aria-label="Sort by">
+            <option value="default">Default</option>
+            <option value="date">Date</option>
+            <option value="az">Title A–Z</option>
+            <option value="za">Title Z–A</option>
+            <option value="pinned">Pinned First</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ideas appear here -->
+      <div id="ideasContainer" class="ideas-container"></div>
+
+      <footer class="footer">
+        <p>© 2025 IdeaSpark Inc. All rights reserved.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="viewIdeaList.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IdeaSpark Search</title>
+
+<link rel="stylesheet" href="searchIdeas.css">
+<link rel="stylesheet" href="sidebar.css" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+  <!-- Hamburger Icon -->
+  <span class="hamburger-icon" id="hamburger-icon">&#9776;</span>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-nav-wrapper">
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="editProfile.html"><img src="IMAGES/Navbar/profile.png" alt="Profile"></a></li>
+          <li><a href="mainpage.html"><img src="IMAGES/Navbar/addidea.png" alt="Add Idea"></a></li>
+          <li><a href="viewIdeaList.html"><img src="IMAGES/Navbar/list.png" alt="View Idea List"></a></li>
+          <li><a href="editDeleteIdea.html"><img src="IMAGES/Navbar/edit.png" alt="Edit Idea"></a></li>
+          <li><a href="searchIdeas.html"><img src="IMAGES/Navbar/search.png" alt="Search Idea"></a></li>
+          <li><a href="pinIdea.html"><img src="IMAGES/Navbar/pin.png" alt="Pin Idea"></a></li>
+          <li><a href="ideaCategories.html"><img src="IMAGES/Navbar/categories.png" alt="Categories"></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="settings.html">
+          <img src="IMAGES/Navbar/settings.png" alt="Settings">
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="header">
+      <div class="header-text">
+        <h1>IDEA SPARK</h1>
+        <p>WHERE YOUR IDEAS ARE STORED.</p>
+      </div>
+      <div class="header-icons">
+        <img src="IMAGES/user-avatar.jpg" alt="User Avatar" class="user-avatar" id="mainAvatar">
+      </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+
+  <div class="search-box-wrapper" style="position: relative; width: 80%; max-width: 600px;">
+    <div class="search-box">
+      <span class="material-icons search-icon">search</span>
+      <input type="text" id="idea-search-input" placeholder="SEARCH FOR YOUR IDEAS HERE" autocomplete="off">
+    </div>
+    
+    <!-- Previous searches dropdown -->
+    <ul class="search-dropdown" id="search-dropdown"></ul>
+  </div>
+
+</section>
+
+    <!-- Results -->
+    <section class="search-results" id="search-results">
+      <p class="search-info">Start typing above to search your ideas!</p>
+    </section>
+
+    <footer class="footer">
+      <p>© 2025 IdeaSpark Inc. All rights reserved.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="searchIdeas.js"></script>
+</body>
+</html>

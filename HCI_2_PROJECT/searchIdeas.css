@@ -1,0 +1,177 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2F5E6 40%, #D4EAD9 100%);
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding: 0 40px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 30px;
+  color: #333;
+}
+
+.header-text h1 {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.header-text p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333;
+}
+
+/* Search Section */
+.search-section {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 400px;
+  margin: 50px auto 0;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  /* Background image */
+  background-image: url('IMAGES/idea.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Wrapper for search bar and dropdown */
+.search-box-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  z-index: 10; /* above background */
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 10px 20px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 20;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  background: transparent;
+  color: #333; /* visible on bright background */
+}
+
+.search-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+/* Previous Searches Dropdown */
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+  margin: 5px 0 0 0;
+  z-index: 30;
+  display: none; /* hidden by default */
+}
+
+.search-dropdown li {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.search-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Search Results */
+.search-results {
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 900px;
+  width: 90%;
+  align-items: center;
+}
+
+.result-card {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.result-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.result-card p {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.footer {
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+  font-size: 0.8rem;
+}
